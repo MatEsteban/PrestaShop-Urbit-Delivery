@@ -14,7 +14,7 @@ include(dirname(__FILE__) . '/classes/api/UbitAPIWrapper.php');
 require_once(dirname(__FILE__).'../../../config/config.inc.php');
 require_once(dirname(__FILE__).'../../../init.php');
 
-header('Content-Type', 'application/json');
+header('Content-Type: application/json');
 
 $db = Db::getInstance();
 // ps_urbit_rate_service_code
@@ -123,12 +123,9 @@ if ($test_api_call) {
 
     Configuration::updateValue('URBIT_ADMIN_AUTO_VALIDATION_TIME', Tools::getValue('URBIT_ADMIN_AUTO_VALIDATION_TIME'));
     Configuration::updateValue('URBIT_ADMIN_STATUS_TRIGGER', Tools::getValue('URBIT_ADMIN_STATUS_TRIGGER'));
-<<<<<<< HEAD
-=======
     Configuration::updateValue('URBIT_ADMIN_STATUS_CANCEL', Tools::getValue('URBIT_ADMIN_STATUS_CANCEL'));
 
 
->>>>>>> master
 
     //update delivery cost
     Configuration::updateValue('URBIT_ADMIN_FLAT_FEE_EUR', Tools::getValue('URBIT_ADMIN_FLAT_FEE_EUR'));

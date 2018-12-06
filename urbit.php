@@ -26,11 +26,7 @@ class Urbit extends UrbitAbstract
     public function __construct()
     {
         $this->name = 'urbit';
-<<<<<<< HEAD
-        $this->version = '1.1.7.3';
-=======
         $this->version = '1.1.7.1';
->>>>>>> master
 
         $this->author = 'urb-it';
         $this->tab = 'shipping_logistics';
@@ -53,6 +49,17 @@ class Urbit extends UrbitAbstract
     public function install()
     {
         $installer = new UrbitInstaller($this);
+
+        $dir = '/override/controllers/admin/templates/orders/helpers/view/';
+        $srcDir = dirname(__FILE__) . $dir;
+        $destDir = _PS_ROOT_DIR_ . $dir;
+
+        if(!file_exists($destDir) && !is_dir($destDir)){
+            mkdir($destDir, 0777, true);
+        }
+
+        $fileData = file_get_contents($srcDir . 'view.tpl');
+        file_put_contents($destDir . 'view.tpl', $fileData);
 
         return parent::install() && $installer->install();
     }
